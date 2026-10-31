@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101827" />
+  <title>ClearShare — Live screen sharing</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><div class="brand"><span class="logo">◈</span> ClearShare</div><span class="chip">Private 1-to-1 demo</span></header>
+    <div class="heading"><p class="eyebrow">LIVE SCREEN SHARING</p><h1>Connect a screen to your phone.</h1><p class="subtitle">A simple WebRTC demo. The person sharing must approve the browser's screen-sharing request and can stop at any time.</p></div>
+    <section id="sharer" class="card" hidden>
+      <div class="section-title"><span class="round">1</span><div><h2>Share your screen</h2><p>Open this page on the computer you want to share.</p></div></div>
+      <div class="field"><label for="invite">Private viewer invitation</label><div class="input-row"><input id="invite" readonly placeholder="Creating invitation…" aria-label="Viewer invitation link"><button id="copy" class="secondary" type="button">Copy</button></div><small>Anyone with this link can join as the viewer. Share it only with someone you trust.</small></div>
+      <div id="sharerStatus" class="status" role="status">Creating your private session…</div>
+      <div class="buttons"><button id="start" disabled type="button">Start screen sharing</button><button id="stop" class="danger" disabled type="button">Stop sharing</button></div>
+      <video id="preview" autoplay muted playsinline hidden></video>
+      <div id="active" class="active" hidden>● Your screen is being shared. Use “Stop sharing” here or your browser's sharing control to end it.</div>
+    </section>
+    <section id="viewer" class="card" hidden>
+      <div class="section-title"><span class="round">2</span><div><h2>Watch on your phone</h2><p>The owner of the other device must explicitly start sharing.</p></div></div>
+      <div id="viewerStatus" class="status" role="status">Joining the session…</div>
+      <div class="screen"><video id="remote" autoplay playsinline controls></video><div id="empty" class="screen-empty">Waiting for screen sharing to begin…</div></div>
+      <button id="play" class="secondary" hidden type="button">Play incoming video</button>
+    </section>
+    <section id="home" class="card" hidden><h2>Get started</h2><p>Open this page on a desktop browser, create an invitation, and send it to the phone that will watch.</p><a class="link-button" href="/share">Create screen-sharing invitation</a></section>
+    <footer>For authorized screen sharing only • No recording or file storage • Video uses a peer-to-peer connection when possible</footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script><script src="/app.js" defer></script>
+</body>
+</html>
