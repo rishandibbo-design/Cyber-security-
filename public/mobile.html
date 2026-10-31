@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>ClearShare — Phone-to-phone screen sharing</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .mobile-card{margin-bottom:18px}.mobile-card h2{margin-bottom:13px}
+    .mobile-card p,.mobile-card li{color:#b6c7da;line-height:1.7}
+    .mobile-card ol{padding-left:22px}.mobile-card li{margin:9px 0}
+    .mobile-tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .mobile-tools>*{flex:1;min-width:145px}
+    .meeting-link{overflow-wrap:anywhere;color:#8dc0ff;margin-top:10px}
+    .note{padding:14px;background:#0e1728;border:1px solid #31435f;border-radius:12px;font-size:13px;line-height:1.6}
+    .back{display:inline-block;color:#91c5ff;text-decoration:none;margin-top:20px}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><div class="brand"><span class="logo">◈</span> ClearShare</div><span class="chip">Phone ↔ Phone</span></header>
+    <div class="heading">
+      <p class="eyebrow">MOBILE SCREEN SHARING</p>
+      <h1>Share a phone screen with another phone.</h1>
+      <p class="subtitle">Android and iPhone screen sharing requires a native app. This option opens <strong>Jitsi Meet</strong> (an external service) instead of ClearShare's desktop WebRTC viewer.</p>
+    </div>
+    <section class="card mobile-card">
+      <h2>Step 1 — Get the Jitsi Meet app</h2>
+      <p>Install Jitsi Meet on both phones. Screen sharing from mobile Chrome alone is not supported.</p>
+      <a class="link-button secondary" href="https://jitsi.org/downloads/" target="_blank" rel="noopener noreferrer">Download Jitsi Meet</a>
+    </section>
+    <section class="card mobile-card">
+      <h2>Step 2 — Create a meeting invitation</h2>
+      <p>Generate a random meeting link. This creates the <em>link</em> only; the meeting begins when you open it in Jitsi. The first person may need to sign in as moderator.</p>
+      <button id="generate" type="button">Generate meeting link</button>
+      <div id="details" hidden>
+        <div class="field">
+          <label for="mobileInvite">Meeting invitation — send to the other phone</label>
+          <div class="input-row"><input id="mobileInvite" readonly aria-label="Jitsi meeting link"><button class="secondary" id="copyMobile" type="button">Copy invitation</button></div>
+          <small>Keep this link private. People with the link may be able to join your meeting. Jitsi Meet is a third-party service, not this website's video server.</small>
+        </div>
+        <div class="mobile-tools">
+          <a id="openMeeting" class="link-button" target="_blank" rel="noopener noreferrer">Open meeting in Jitsi</a>
+          <button id="shareMobile" class="secondary" type="button">Share invitation</button>
+        </div>
+      </div>
+    </section>
+    <section class="card mobile-card">
+      <h2>Step 3 — Share and watch</h2>
+      <ol>
+        <li>On <strong>Phone A</strong>, open the generated meeting in the Jitsi Meet app and join it. Sign in if Jitsi asks the host to authenticate.</li>
+        <li>On <strong>Phone B</strong>, open the same meeting link in the Jitsi Meet app and join.</li>
+        <li>On Phone A, use Jitsi's <strong>Share screen</strong> option and approve the operating-system screen-sharing prompt.</li>
+        <li>Phone B can now watch in Jitsi. Phone A can stop sharing at any time from Jitsi or the system sharing control.</li>
+      </ol>
+      <p class="note"><strong>Privacy:</strong> This feature does not secretly collect or monitor screens. The phone owner chooses when to share, and screen sharing remains visible. Calls happen on Jitsi's service, so review its privacy practices before sharing sensitive material.</p>
+    </section>
+    <a class="back" href="/">← Back to ClearShare</a>
+  </main>
+  <script defer src="/mobile.js"></script>
+</body>
+</html>
