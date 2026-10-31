@@ -27,3 +27,11 @@ To run locally on a computer: `npm install && npm start`, then visit http://loca
 - The viewer link is a bearer secret: anyone who has it can connect until expiry. Don't publish it.
 - Use only on devices you own or with informed authorization.
 - The UI and signaling server do not constitute a hardened production security product.
+
+## Phone → phone (Android / iPhone)
+
+Visit `https://your-service.onrender.com/mobile.html` from a phone.
+
+Select **Generate meeting link**, share the link with the other phone, and join using the **Jitsi Meet native app** on both phones. The person sharing uses the Jitsi app's **Share screen** action and approves the Android/iOS screen-sharing permission. Sharing can be stopped from the app or system controls.
+
+**Important:** This is a handoff to the third-party Jitsi Meet service; it is not captured or streamed through ClearShare's Node.js server, and its privacy/security policies are separate. The moderator may need to sign in to start the meeting on meet.jit.si. Mobile Chrome still cannot share the entire screen through `getDisplayMedia()`. This feature does not provide remote control, recording, hidden capture, or permission bypass.
