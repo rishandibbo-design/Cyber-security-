@@ -15,6 +15,7 @@
       <div class="section-title"><span class="round">1</span><div><h2>Share your screen</h2><p>Open this page on the computer you want to share.</p></div></div>
       <div class="field"><label for="invite">Private viewer invitation</label><div class="input-row"><input id="invite" readonly placeholder="Creating invitation…" aria-label="Viewer invitation link"><button id="copy" class="secondary" type="button">Copy</button></div><small>Anyone with this link can join as the viewer. Share it only with someone you trust.</small></div>
       <div id="sharerStatus" class="status" role="status">Creating your private session…</div>
+      <p style="margin:12px 0;color:#b5c6df">Sharing from an Android or iPhone? Mobile Chrome cannot capture the screen. <a style="color:#8dc0ff" href="/mobile.html">Use phone-to-phone screen sharing with the Jitsi Meet app instead</a>.</p>
       <div class="buttons"><button id="start" disabled type="button">Start screen sharing</button><button id="stop" class="danger" disabled type="button">Stop sharing</button></div>
       <video id="preview" autoplay muted playsinline hidden></video>
       <div id="active" class="active" hidden>● Your screen is being shared. Use “Stop sharing” here or your browser's sharing control to end it.</div>
@@ -25,7 +26,14 @@
       <div class="screen"><video id="remote" autoplay playsinline controls></video><div id="empty" class="screen-empty">Waiting for screen sharing to begin…</div></div>
       <button id="play" class="secondary" hidden type="button">Play incoming video</button>
     </section>
-    <section id="home" class="card" hidden><h2>Get started</h2><p>Open this page on a desktop browser, create an invitation, and send it to the phone that will watch.</p><a class="link-button" href="/share">Create screen-sharing invitation</a></section>
+    <section id="home" class="card" hidden>
+      <h2>Choose your sharing method</h2>
+      <p><strong>Computer → Phone:</strong> Open the desktop sharing page on the computer. Your phone uses a ClearShare viewer invitation.</p>
+      <a class="link-button" href="/share">Share computer screen</a>
+      <hr style="border:0;border-top:1px solid #31435f;margin:24px 0">
+      <p><strong>Phone → Phone:</strong> Use a mobile app that can request operating-system screen sharing. The mobile option launches an external Jitsi Meet meeting (not ClearShare's WebRTC service).</p>
+      <a class="link-button secondary" href="/mobile.html">Phone-to-phone sharing</a>
+    </section>
     <footer>For authorized screen sharing only • No recording or file storage • Video uses a peer-to-peer connection when possible</footer>
   </main>
   <script src="/socket.io/socket.io.js"></script><script src="/app.js" defer></script>
